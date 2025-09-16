@@ -13,7 +13,23 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        //use a List 
+        List<double> result = new List<double>();
+
+
+
+        //use For loop , until meet length
+
+        for (int i = 1; i <= length; i++)
+        {
+            //add mutiple of number in the result List
+            result.Add(i * number);
+        }
+
+        //convert List result to array resultO
+        double[] resultO = result.ToArray();
+
+        return resultO; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +45,29 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+
+
+        //fix the right amount value
+        amount = amount % data.Count;
+
+        // item to start = total - amount
+        int startIndexData = data.Count - amount;
+
+        //add the last numbers from "data" list which start startIndexData
+        List<int> newData = data.GetRange(startIndexData, amount);
+
+
+        //add the rest of data list numbers to newData List
+        newData.AddRange(data.GetRange(0, startIndexData));
+
+        //update data numbers by newData value
+        data.Clear();
+        data.AddRange(newData);
+
+
     }
+
+   
 }
+
