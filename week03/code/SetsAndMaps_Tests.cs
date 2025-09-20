@@ -175,11 +175,11 @@ public class IsAnagramTests
         Assert.IsTrue(SetsAndMaps.IsAnagram("Ab", "Ba"));
     }
 
-    [TestMethod]
-    public void IsAnagram_IgnoresSpaces()
-    {
-        Assert.IsTrue(SetsAndMaps.IsAnagram("tom marvolo riddle", "i am lord voldemort"));
-    }
+        [TestMethod]
+        public void IsAnagram_IgnoresSpaces()
+        {
+            Assert.IsTrue(SetsAndMaps.IsAnagram("tom marvolo riddle", "i am lord voldemort"));
+        }
 
     [TestMethod]
     public void IsAnagram_IgnoresSpacesAndCases()
