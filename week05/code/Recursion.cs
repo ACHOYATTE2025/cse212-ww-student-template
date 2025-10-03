@@ -53,13 +53,13 @@ public static class Recursion
         return;
     }
 
-    // Parcours de toutes les lettres restantes
+    // along the letters 
     for (int i = 0; i < letters.Length; i++)
     {
         char c = letters[i];
-        // Supprime la lettre choisie pour ne pas la réutiliser
+        // delete letter choiced
         string remaining = letters.Substring(0, i) + letters.Substring(i + 1);
-        // Appel récursif avec la lettre ajoutée au mot en cours
+        
         PermutationsChoose(results, remaining, size, word + c);
     }
 
@@ -113,22 +113,22 @@ public static class Recursion
         if (remember == null)
         remember = new Dictionary<int, decimal>();
 
-    // Cas de base
-    if (s == 0) return 1; // 1 façon de rester en bas
+    // Case  base
+    if (s == 0) return 1; 
     if (s == 1) return 1;
     if (s == 2) return 2;
     if (s == 3) return 4;
 
-    // Vérifier si la valeur a déjà été calculée
+  
     if (remember.ContainsKey(s))
         return remember[s];
 
-    // Solve using recursion avec mémoïsation
+ 
     decimal ways = CountWaysToClimb(s - 1, remember) +
                    CountWaysToClimb(s - 2, remember) +
                    CountWaysToClimb(s - 3, remember);
 
-    // Mémoriser le résultat
+    // Memoize result
     remember[s] = ways;
 
     return ways;
@@ -150,21 +150,21 @@ public static class Recursion
     public static void WildcardBinary(string pattern, List<string> results)
     {
         // TODO Start Problem 4
-         // Cas de base : si le pattern est vide ou ne contient plus de '*', on l'ajoute
+         // Case base
     if (!pattern.Contains("*"))
     {
         results.Add(pattern);
         return;
     }
 
-    // Trouver l'index du premier '*'
+    // find the first index '*'
     int index = pattern.IndexOf('*');
 
-    // Remplacer '*' par '0' et '1' et appeler récursivement
+    // Replace '*' by '0' and '1' and call recursive
     string patternWith0 = pattern.Substring(0, index) + "0" + pattern.Substring(index + 1);
     string patternWith1 = pattern.Substring(0, index) + "1" + pattern.Substring(index + 1);
 
-    // Appel récursif
+    // call récursive
     WildcardBinary(patternWith0, results);
     WildcardBinary(patternWith1, results);
     }
